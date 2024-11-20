@@ -5,10 +5,15 @@ import (
 
 	"github.com/open-policy-agent/gatekeeper/v3/pkg/pubsub/connection"
 	"github.com/open-policy-agent/gatekeeper/v3/pkg/pubsub/dapr"
+	"github.com/open-policy-agent/gatekeeper/v3/pkg/pubsub/diskwriter"
+	"github.com/open-policy-agent/gatekeeper/v3/pkg/pubsub/publisher"
 )
 
 var pubSubs = newPubSubSet(map[string]InitiateConnection{
 	dapr.Name: dapr.NewConnection,
+	diskwriter.Name: diskwriter.NewConnection,
+	publisher.Name: publisher.NewConnection,
+
 },
 )
 
